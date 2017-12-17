@@ -1,0 +1,31 @@
+====ZADANIA=====
+a) Ustalić wszystkie funkcje aplikacji (można rozszerzyć lub zrezygnować z niektórych uzasadnienie!!!)
+- Oglądać tabelkę z zawartością dla danego katalogu
+- Użytkownik może wrzucać nowy plik
+- Użytkownik może pobierać plik (poprzez kliknięcie elementu na tabeli)
+- Użytkownik może usuwać plik - jeden z elementów tabeli
+- Logowanie
+- Udostępnianie plików
+- Nadawanie uprawnień innym użytkownikom przez Administratora
+- Tylko wybrane formaty plików mogą zostać wrzucane
+
+b) wykonać rysunki i uproszczone diagramy aktywności (może być ręcznie)
+-
+
+c) zorganizować środowisko pacy grupowej
+- GitHub
+- trello.com - tablica z zadaniami
+
+d)
+- Postawienie strony www z bazą MySQL
+- Konfiguracja bazy:
+	* dodanie użytkowików, 
+	* dodanie obsługiwanych formatów plików
+	* definiowanie uprawnień użytkowników (admin, user, guest)
+	* tabela z informacjami o wrzuconych plikach (ilość tabel zależna od ilości katalogów, nazwa ,user , id, data dodania, data modyfikacji, ...)
+
+- Strona z autoryzacją
+- 
+
+
+- 
