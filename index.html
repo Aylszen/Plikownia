@@ -1,65 +1,25 @@
 <!doctype html>
 <html>
 <head>
-<!-- zdefiniuj styl .css-->
-<style>
-td{
-	background-color:gray;
-	width:50px;
-	height:50px;
-}
-td.on{
-	background-color:red;
-}
-</style>
-
-<!-- import jquery-->
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js"></script>
-<!-- skrypt jquery-->
-<script type="text/javascript">
-$(function(){
-	kolumny = 6;
-	wiersze = 6;
-	
-	function rysuj(){
-		$('table').html("");
-		for (i=0;i<kolumny;i++)
-			$('table').append('<tr>');
-		for (i=0;i<wiersze;i++)
-			$('tr').append('<td>');
-		i = 0;
-		N = $('td').length;
-		$('td').each(function(){
-			i++;
-			kolor = Math.round (i*255 / N);
-			$(this).text(kolor);
-			$(this).css("background-color", "rgb("+kolor+","+kolor+","+kolor+")");
-		});
-	}
-	rysuj();
-	$('#kol').change(function(){
-		kolumny = $(this).val();
-		rysuj();
-	});
-	$('#wie').change(function(){
-		wiersze = $(this).val();
-		rysuj();
-	});
-	$('td').click(function(e){
-	$(this).toggleClass("on").siblings("td").toggleClass("on");
-	elem = "td:nth-child("+(e.target.cellIndex+1)+")";
-	$(this).parent().siblings("tr").find(elem).toggleClass("on");
-	});
-
-});
-</script>
+	<meta charset="utf-8">
+	<title>Formularz logowania</title>
+	<link rel="stylesheet" href="style.css" type=text/css>
 </head>
 <body>
 
-<p><input id="kol" type="range" min="2" max="10" step "1" /></p>
-<p><input id="wie" type="range" min="2" max="10" step "1" /></p>
-
-<table>
-</table>
+<div class="container">
+	<form id="login">
+		<div class="header">
+			<h3>Zaloguj się</h3>
+			<p>Wypełnij poniższe pola aby zalogować się do panelu</p>
+		</div>
+		<div class="sep"></div>
+		<div class="input">
+			<input type="email" placeholder="Adres e-mail" autofocus/>
+			<input type="password" placeholder="Hasło" /><br>
+			<a id="submit" href="#">Zaloguj się do panelu</a>
+		</div>
+	</form>
+</div>
 </body>
 </html>
