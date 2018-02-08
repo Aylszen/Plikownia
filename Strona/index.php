@@ -1,3 +1,4 @@
+<!DOCTYPE HTML>
 <?php
 
 session_start();
@@ -9,8 +10,6 @@ if ((isset($_SESSION['zalogowany'])) && ($_SESSION['zalogowany']==true))
 }
 
 ?>
-
-<!DOCTYPE HTML>
 <html lang="pl">
   <head>
     <meta charset="utf-8" />
