@@ -1,0 +1,132 @@
+/* CSS Tree menu styles */
+ol.tree {
+	padding: 0 0 0 30px;
+	width: 300px;
+}
+li { 
+	position: relative; 
+	margin-left: -15px;
+	list-style: none;
+}      
+li input {
+	position: absolute;
+	left: 0;
+	margin-left: 0;
+	opacity: 0;
+	z-index: 2;
+	cursor: pointer;
+	height: 1em;
+	width: 1em;
+	top: 0;
+}
+li input + ol {
+	background: url(../img/toggle-small-expand.png) 40px 0 no-repeat;
+	margin: -1.600em 0px 8px -44px; 
+	height: 1em;
+}
+li input + ol > li { 
+	display: none; 
+	margin-left: -14px !important; 
+	padding-left: 1px; 
+}
+li label {
+	background: url(../img/folder.png) 15px 1px no-repeat;
+	cursor: pointer;
+	display: block;
+	padding-left: 37px;
+}
+li input:checked + ol {
+	background: url(../img/toggle-small.png) 40px 5px no-repeat;
+	margin: -1.96em 0 0 -44px; 
+	padding: 1.563em 0 0 80px;
+	height: auto;
+}
+li input:checked + ol > li { 
+	display: block; 
+	margin: 8px 0px 0px 0.125em;
+}
+li input:checked + ol > li:last-child { 
+	margin: 8px 0 0.063em;
+}
+
+body{
+	background-color: darkgreen;
+}
+
+.container { 
+	display: -webkit-flex; 
+	display: flex;
+	-webkit-flex-flow: row wrap; 
+	flex-flow: row wrap;}
+
+.c1 {
+	border-bottom-style: solid;
+	border-bottom-width: thin;
+	border-top-style: solid;
+	border-top-width: thin;
+	border-left-style: solid;
+	border-left-width: thin;
+	border-right-style: solid;
+	border-right-width: thin;
+	background-color: aqua;
+	margin-right: 5px;
+	margin-left: 5px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+.c2 {
+	border-bottom-style: solid;
+	border-bottom-width: thin;
+	border-top-style: solid;
+	border-top-width: thin;
+	border-left-style: solid;
+	border-left-width: thin;
+	border-right-style: solid;
+	border-right-width: thin;
+	background-color: beige;
+	margin-right: 5px;
+	margin-left: 5px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+.c3 {
+	border-bottom-style: solid;
+	border-bottom-width: thin;
+	border-top-style: solid;
+	border-top-width: thin;
+	border-left-style: solid;
+	border-left-width: thin;
+	border-right-style: solid;
+	border-right-width: thin;
+	background-color: coral;
+	margin-right: 5px;
+	margin-left: 5px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+.c1, .c2, .c3 {
+	width: 100%; }
+
+@media (min-width: 600px) { 
+	.c1 { width: 60%;
+		-webkit-order: 2;
+		order: 2; } 
+	.c2 { width: 40%;
+		-webkit-order: 1;
+		order: 1; }
+	.c3 { width: 100%; 
+		-webkit-order: 3;
+		order: 3; } } 
+
+@media (min-width: 800px)
+{ 
+	.c2 {
+		width: 20%; 
+	} 
+	.c3 {
+		width: 20%;
+	}
+} 
