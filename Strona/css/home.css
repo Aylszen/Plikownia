@@ -57,9 +57,11 @@ body{
 	display: -webkit-flex; 
 	display: flex;
 	-webkit-flex-flow: row wrap; 
-	flex-flow: row wrap;}
+	flex-flow: row wrap;
+	width: auto;}
 
 .c1 {
+	width: 320px;
 	border-bottom-style: solid;
 	border-bottom-width: thin;
 	border-top-style: solid;
@@ -68,7 +70,7 @@ body{
 	border-left-width: thin;
 	border-right-style: solid;
 	border-right-width: thin;
-	background-color: aqua;
+	background-color: beige;
 	margin-right: 5px;
 	margin-left: 5px;
 	margin-bottom: 5px;
@@ -76,6 +78,8 @@ body{
 }
 
 .c2 {
+	width: 320px;
+	height: 250px;
 	border-bottom-style: solid;
 	border-bottom-width: thin;
 	border-top-style: solid;
@@ -105,6 +109,7 @@ body{
 	margin-left: 5px;
 	margin-bottom: 5px;
 	margin-top: 5px;
+	width: auto;
 }
 
 .c1, .c2, .c3 {
@@ -114,7 +119,7 @@ body{
 	.c1 { width: 60%;
 		-webkit-order: 2;
 		order: 2; } 
-	.c2 { width: 40%;
+	.c2 { width: 60%;
 		-webkit-order: 1;
 		order: 1; }
 	.c3 { width: 100%; 
