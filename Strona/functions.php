@@ -6,9 +6,11 @@ function createTreeView($parent, $menu) {
       $html .= "
       <ol class='tree'>";
        foreach ($menu['parents'][$parent] as $itemId) {
+		  // creating subfolders
           if(!isset($menu['parents'][$itemId])) {
-             $html .= "<li><label for='subfolder2'><a href='".$menu['items'][$itemId]['link']."'>".$menu['items'][$itemId]['label']."</a></label> <input type='checkbox' name='subfolder2'/></li>";
+             $html .= "<li onclick='viewFolderOnClick(".$menu['items'][$itemId]['link'].")'><label for='subfolder2'></label>".$menu['items'][$itemId]['label']."<input type='checkbox' name='subfolder2'/></li>";
           }
+		  //creating the main folder
           if(isset($menu['parents'][$itemId])) {
              $html .= "
              <li><label for='subfolder2'><a href='".$menu['items'][$itemId]['link']."'>".$menu['items'][$itemId]['label']."</a></label> <input type='checkbox' name='subfolder2'/>";
