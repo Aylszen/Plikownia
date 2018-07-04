@@ -8,12 +8,14 @@ function createTreeView($parent, $menu) {
        foreach ($menu['parents'][$parent] as $itemId) {
 		  // creating subfolders
           if(!isset($menu['parents'][$itemId])) {
-             $html .= "<li onclick='viewFolderOnClick(".$menu['items'][$itemId]['link'].")'><label for='subfolder2'></label>".$menu['items'][$itemId]['label']."<input type='checkbox' name='subfolder2'/></li>";
+			 $link=$menu['items'][$itemId]['link'];
+             $html .= "<li><label for='subfolder2'><span id='".$link."' onclick='viewFolderOnClick(id)'>".$menu['items'][$itemId]['label']."</span></label><input type='checkbox' name='subfolder2'/></li>";
           }
 		  //creating the main folder
           if(isset($menu['parents'][$itemId])) {
+			 $link=$menu['items'][$itemId]['link'];
              $html .= "
-             <li><label for='subfolder2'><a href='".$menu['items'][$itemId]['link']."'>".$menu['items'][$itemId]['label']."</a></label> <input type='checkbox' name='subfolder2'/>";
+             <li><label for='subfolder2'><span id='".$link."' onclick='viewFolderOnClick(id)'>".$menu['items'][$itemId]['label']."</span></label> <input type='checkbox' name='subfolder2'/>";
              $html .= createTreeView($itemId, $menu);
              $html .= "</li>";
           }

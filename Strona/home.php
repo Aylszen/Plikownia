@@ -79,7 +79,6 @@ if (!isset($_SESSION['zalogowany']))
 						</thead>
 						<tbody id="table_content">
 							<?php
-								//include_once("viewFunction.php");
 								$dirPath="FILES/".$_SESSION['user'];
 								echo viewFolder($dirPath);
 							?>	
@@ -98,9 +97,27 @@ if (!isset($_SESSION['zalogowany']))
 			
 		</section>
 		<script>
-			function viewFolderOnClick($dirPath)
+			function viewFolderOnClick(dirPath)
 			{
-				document.getElementById("zmien").innerHTML = "fffff" ;
+				//document.getElementById("table_content").innerHTML = dirPath;
+				if (dirPath.length == 0) 
+				{
+					//document.getElementById("table_content").innerHTML = "";
+					return;
+				} 
+				else 
+				{
+					var xmlhttp = new XMLHttpRequest();
+					xmlhttp.onreadystatechange = function() {
+						if (this.readyState == 4 && this.status == 200) 
+						{
+							document.getElementById("table_content").innerHTML =this.responseText ;
+						}
+					};
+					xmlhttp.open("GET", "viewFunctionLater.php?q=" + dirPath, true);
+					xmlhttp.send();
+					
+				}
 			}
 		</script>
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

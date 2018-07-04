@@ -62,6 +62,16 @@ p
 {
 	padding-top:8px;
 }
+span
+{
+	color:#004D40;
+	letter-spacing: 1px;
+	font-weight: bold;
+}
+tbody, thead
+{
+	color:#004D40;
+}
 .myrow
 {
 	margin-top:20px;
@@ -69,7 +79,7 @@ p
 .c0
 {
 	
-	height:50px;
+	min-height:50px;
 	text-align:left;
 	padding-top:5px;
 	

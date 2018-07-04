@@ -1,15 +1,18 @@
 body[role="login"] {
-	font-family: 'Roboto', sans-serif;
-	background: #045404;
-	background-size: cover;
+	background-color: #004D40;
+	font-family: 'Open Sans', sans-serif;
+	color:#E0F2F1;
 }
 [role="login"] .container {
-	margin-top: 100px
+	margin-top: 100px;
+	
 }
 [role="login"] .btn-success {
-	background: #76B831;
-	border: 1px solid #679F2C;
-	float: right
+	background: #004D40;
+	color:#B2DFDB;
+	border: 1px solid white;
+	float: right;
+	margin-bottom:5px;
 }
 [role="login"] label {
 	font-weight: normal;
@@ -31,6 +34,11 @@ hr {
 	background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #FFF, rgba(0, 0, 0, 0));
 	margin: 5px
 }
+fieldset
+{
+	background-color:#80CBC4;
+	color:#004D40;
+}
 .profile-img {
 	margin: 0 auto 10px;
 	display: block;
@@ -40,8 +48,10 @@ hr {
 	-webkit-box-shadow: 0px 7px 24px 1px rgba(0,0,0,0.45);
 	-moz-box-shadow: 0px 7px 24px 1px rgba(0,0,0,0.45);
 	box-shadow: 0px 7px 24px 1px rgba(0,0,0,0.45);
+	border:10px double #009688;
 }
 
-.h1 {
-
+h4 
+{
+	font-size:18px;
 }

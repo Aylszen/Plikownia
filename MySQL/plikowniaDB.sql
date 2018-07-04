@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 11 Lut 2018, 15:31
--- Wersja serwera: 10.1.29-MariaDB
--- Wersja PHP: 7.1.12
+-- Czas generowania: 04 Lip 2018, 16:41
+-- Wersja serwera: 10.1.31-MariaDB
+-- Wersja PHP: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -42,20 +42,20 @@ CREATE TABLE `menus` (
 --
 
 INSERT INTO `menus` (`user`, `id`, `label`, `link`, `parent`, `sort`) VALUES
-('test', 1, 'test', '#', 0, 0),
-('test', 2, 'Piki', '#', 1, NULL),
-('test', 3, 'Inne', '#', 1, NULL),
-('KrzysztofKita', 4, 'KrzysztofKita', '#', 0, NULL),
-('KrzysztofKita', 5, 'Pliki', '#', 4, NULL),
-('HimekoKuran', 7, 'HimekoKuran', '$', 0, NULL),
-('HimekoKuran', 8, 'Pliki', '#', 7, NULL),
-('HimekoKuran', 9, 'Wazne', '', 7, NULL),
-('MariuszCiupinski', 10, 'MariuszCiupinski', '', 0, NULL),
-('MariuszCiupinski', 11, 'Pliki', '#', 10, NULL),
-('MariuszCiupinski', 12, 'Takie tam', '#', 10, NULL),
-('AndrzejStrek', 13, 'AndrzejStrek', '', 0, NULL),
-('AndrzejStrek', 14, 'Tutorials', '', 13, NULL),
-('KrzysztofKita', 15, 'Projekt', '', 4, NULL);
+('test', 1, 'test', 'FILES/test', 0, 0),
+('test', 2, 'Piki', 'FILES/test/Pliki ', 1, NULL),
+('test', 3, 'Inne', 'FILES/test/Inne ', 1, NULL),
+('KrzysztofKita', 4, 'KrzysztofKita', 'FILES/KrzysztofKita', 0, NULL),
+('KrzysztofKita', 5, 'Pliki', 'FILES/KrzysztofKita/Pliki', 4, NULL),
+('HimekoKuran', 7, 'HimekoKuran', 'FILES/HimekoKuran', 0, NULL),
+('HimekoKuran', 8, 'Pliki', 'FILES/HimekoKuran/Pliki 	', 7, NULL),
+('HimekoKuran', 9, 'Wazne', 'FILES/HimekoKuran/Wazne 	', 7, NULL),
+('MariuszCiupinski', 10, 'MariuszCiupinski', 'FILES/MariuszCiupinski', 0, NULL),
+('MariuszCiupinski', 11, 'Pliki', 'FILES/MariuszCiupinski/Pliki', 10, NULL),
+('MariuszCiupinski', 12, 'Pictures', 'FILES/MariuszCiupinski/Pictures', 10, NULL),
+('AndrzejStrek', 13, 'AndrzejStrek', 'FILES/AndrzejStrek', 0, NULL),
+('AndrzejStrek', 14, 'Tutorials', 'FILES/AndrzejStrek/Tutorials', 13, NULL),
+('KrzysztofKita', 15, 'Projekt', 'FILES/KrzysztofKita/Projekt', 4, NULL);
 
 -- --------------------------------------------------------
 
@@ -110,19 +110,19 @@ INSERT INTO `uzytkownicy` (`id`, `user`, `pass`) VALUES
 --
 
 --
--- Indexes for table `menus`
+-- Indeksy dla tabeli `menus`
 --
 ALTER TABLE `menus`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `treeview_items`
+-- Indeksy dla tabeli `treeview_items`
 --
 ALTER TABLE `treeview_items`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `uzytkownicy`
+-- Indeksy dla tabeli `uzytkownicy`
 --
 ALTER TABLE `uzytkownicy`
   ADD PRIMARY KEY (`id`),
@@ -136,7 +136,7 @@ ALTER TABLE `uzytkownicy`
 -- AUTO_INCREMENT dla tabeli `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT dla tabeli `treeview_items`

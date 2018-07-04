@@ -1,9 +1,5 @@
 <?php
-// function 
-function viewFolder($dirPath) {
-	//$dirPath = 'FILES/HimekoKuran';
-	if(isset($_REQUEST["q"]))
-		$dirPath=$_REQUEST["q"];
+	$dirPath=$_REQUEST["q"];
 	$files = scandir($dirPath);
 	$htmlView = "";
 	$arrlength = count($files);
@@ -16,6 +12,5 @@ function viewFolder($dirPath) {
 				<td></td>
 			</tr>";
 	}
-   return $htmlView;
-}  
+   echo $htmlView;  
 ?>
