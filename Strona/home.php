@@ -72,9 +72,9 @@ if (!isset($_SESSION['zalogowany']))
 						<table class="table table-hover">
 						<thead>
 						  <tr>
-							<th>nazwa pliku</th>
-							<th>wielkosc pliku</th>
-							<th>ostatnio modyfikowany</th>
+							<th>Nazwa Pliku</th>
+							<th>Typ Pliku</th>
+							<th>Wielkosc Pliku</th>
 						  </tr>
 						</thead>
 						<tbody id="table_content">
