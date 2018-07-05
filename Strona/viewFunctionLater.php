@@ -1,6 +1,9 @@
 <?php
+	session_start();
+
 	$dirPath=$_REQUEST["q"];
 	$files = scandir($dirPath);
+	$_SESSION['startDirection']=$dirPath;
 	$symbol="/";
 	$htmlView = "";
 	$arrlength = count($files);

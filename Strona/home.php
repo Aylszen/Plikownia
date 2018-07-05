@@ -7,6 +7,11 @@ if (!isset($_SESSION['zalogowany']))
 	header('Location: index.php');
 	exit();
 }
+if(!isset($_SESSION['startDirection']))
+{
+	$_SESSION['startDirection']="FILES/".$_SESSION['user']."/";
+	//echo $_SESSION['startDirection'];
+}
 
 ?>
 <!DOCTYPE HTML>
@@ -33,10 +38,15 @@ if (!isset($_SESSION['zalogowany']))
 			<div class="container">
 				<div class="myrow row" >
 					
-					<div class="c0 col-sm-12 rounded"><?php
+					<div class="c0 col-md-4 rounded-left"><?php
 
-					echo "<p>Witaj <b>".$_SESSION['user'].'</b>! [ <a href="logout.php">Wyloguj się!</a> ]</p>';
+					echo "<p>Witaj <b>".$_SESSION['user'].'</b>! [ <a href="logout.php">Wyloguj się!</a> ]';
+					
+					?></div>
+					<div class="c0 col-md-8 rounded-right " style="text-align:center;"><?php
 
+					echo "<p id='currentFolder'> Your current folder: <b>".$_SESSION['startDirection']."</b></p>";
+					
 					?></div>
 					</div>
 					<div class="row">
@@ -79,13 +89,13 @@ if (!isset($_SESSION['zalogowany']))
 						</thead>
 						<tbody id="table_content">
 							<?php
-								$dirPath="FILES/".$_SESSION['user'];
+								$dirPath=$_SESSION['startDirection'];
 								echo viewFolder($dirPath);
 							?>	
 						</tbody>
 					  </table>							
 					</div>
-					<div class="c3 col-md-12 rounded">
+					<div class="c3 col-sm-12 rounded">
 						<form action="upload.php" method="post" enctype="multipart/form-data">
 							Select image to upload:
 							<input type="file" name="fileToUpload" id="fileToUpload">
@@ -98,11 +108,9 @@ if (!isset($_SESSION['zalogowany']))
 		</section>
 		<script>
 			function viewFolderOnClick(dirPath)
-			{
-				//document.getElementById("table_content").innerHTML = dirPath;
+			{	
 				if (dirPath.length == 0) 
 				{
-					//document.getElementById("table_content").innerHTML = "";
 					return;
 				} 
 				else 
@@ -111,13 +119,14 @@ if (!isset($_SESSION['zalogowany']))
 					xmlhttp.onreadystatechange = function() {
 						if (this.readyState == 4 && this.status == 200) 
 						{
-							document.getElementById("table_content").innerHTML =this.responseText ;
+							document.getElementById("table_content").innerHTML =this.responseText;
 						}
 					};
 					xmlhttp.open("GET", "viewFunctionLater.php?q=" + dirPath, true);
 					xmlhttp.send();
 					
 				}
+				document.getElementById("currentFolder").innerHTML = "Your current folder: <b>"+dirPath;
 			}
 		</script>
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -126,3 +135,11 @@ if (!isset($_SESSION['zalogowany']))
 		</main>
 	</body>
 </html>
+<?php
+if(isset($_SESSION['alertsControl']))
+{
+	echo "<script>alert('".$_SESSION['alertsMessage']."')</script>";
+	unset($_SESSION['alertsControl']);
+}
+
+?>

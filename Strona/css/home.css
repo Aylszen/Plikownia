@@ -57,10 +57,14 @@ body{
 a
 {
 	color:white;
+	font-weight: bold;
 }
 p
 {
 	padding-top:8px;
+	display: inline-block;
+	//font-family: 'Open Sans', sans-serif;
+	//font-size:18px;
 }
 span
 {
@@ -78,10 +82,11 @@ tbody, thead
 }
 .c0
 {
-	
+	margin-top:2px;
 	min-height:50px;
 	text-align:left;
 	padding-top:5px;
+	
 	
 }
 .folderView
