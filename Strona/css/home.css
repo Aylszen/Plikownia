@@ -66,12 +66,7 @@ p
 	//font-family: 'Open Sans', sans-serif;
 	//font-size:18px;
 }
-span
-{
-	color:#004D40;
-	letter-spacing: 1px;
-	font-weight: bold;
-}
+
 table
 {
     table-layout: fixed;
@@ -128,5 +123,38 @@ tbody, thead
 .container
 {
 	
+}
+
+#pagination {
+    display: inline-block;
+	padding-top:5px;
+	margin-bottom:5px;
+	position: absolute;
+    bottom: 0;
+	
+}
+
+#pagination span {
+    float: left;
+    padding: 8px 16px;
+	border:1px solid white;
+	border-radius:5px;
+	color:white;
+	letter-spacing: 1px;
+	font-weight: bold;
+	margin:2px;
+	background-color:#009688;
+}
+
+#pagination span.active {
+    background-color: #B2DFDB;
+    color: #004D40;
+	border:1px solid #004D40;
+    border-radius: 25px;
+}
+
+#pagination span:hover:not(.active) {
+    background-color: #004D40;
+    border-radius: 5px;
 }
 

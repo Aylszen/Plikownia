@@ -28,6 +28,52 @@ if(!isset($_SESSION['startDirection']))
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 		<link rel="stylesheet" href="css/home.css" type=text/css media="all">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+			 function pagination(){
+					var req_num_row=4;
+					var $tr=jQuery('tbody tr');
+					var total_num_row=$tr.length;
+					var num_pages=0;
+					if(total_num_row % req_num_row ==0){
+						num_pages=total_num_row / req_num_row;
+					}
+					if(total_num_row % req_num_row >=1){
+						num_pages=total_num_row / req_num_row;
+						num_pages++;
+						num_pages=Math.floor(num_pages++);
+					}
+					for(var i=1; i<=num_pages; i++){
+						jQuery('#pagination').append("<span>"+i+"</span>");
+					}
+					$tr.each(function(i){
+						jQuery(this).hide();
+						if(i+1 <= req_num_row){
+							$tr.eq(i).show();
+						}
+					
+					});
+					jQuery('span').click(function(e){
+						e.preventDefault();
+						$tr.hide();
+						var page=jQuery(this).text();
+						var temp=page-1;
+						var start=temp*req_num_row;
+						//alert(start);
+						$('span').removeClass("active");
+						$(this).addClass("active");
+						for(var i=0; i< req_num_row; i++){
+							
+							$tr.eq(start+i).show();
+						
+						}
+					});
+				}
+			jQuery('document').ready(function(){
+				pagination();
+
+			}); 
+				
+</script>
 		
 	</head>
 
@@ -79,7 +125,8 @@ if(!isset($_SESSION['startDirection']))
 						echo createTreeView(0, $menus);
 						?></div>
 					<div class="folderView col-md-8 rounded table-responsive">
-						<table class="table table-hover">
+						<div class="row">
+						<table id="tableView" class="table table-hover">
 						<thead>
 						  <tr>
 							<th width="60%">Nazwa Pliku</th>
@@ -91,9 +138,14 @@ if(!isset($_SESSION['startDirection']))
 							<?php
 								$dirPath=$_SESSION['startDirection'];
 								echo viewFolder($dirPath);
-							?>	
+							?>
+							
 						</tbody>
-					  </table>							
+					  </table>
+						</div>
+						
+						<div id="pagination" class="row"></div>
+						
 					</div>
 					<div class="c3 col-sm-12 rounded">
 						<form action="upload.php" method="post" enctype="multipart/form-data">
@@ -104,11 +156,11 @@ if(!isset($_SESSION['startDirection']))
 					</div>
 				</div>
 			</div>
-			
+		
 		</section>
-		<script>
+		<script> 
 			function viewFolderOnClick(dirPath)
-			{	
+			{	document.getElementById("pagination").innerHTML ="";
 				if (dirPath.length == 0) 
 				{
 					return;
@@ -120,6 +172,7 @@ if(!isset($_SESSION['startDirection']))
 						if (this.readyState == 4 && this.status == 200) 
 						{
 							document.getElementById("table_content").innerHTML =this.responseText;
+							pagination();
 						}
 					};
 					xmlhttp.open("GET", "viewFunctionLater.php?q=" + dirPath, true);
@@ -127,6 +180,7 @@ if(!isset($_SESSION['startDirection']))
 					
 				}
 				document.getElementById("currentFolder").innerHTML = "Your current folder: <b>"+dirPath;
+				
 			}
 		</script>
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
