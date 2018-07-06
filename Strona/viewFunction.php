@@ -29,9 +29,9 @@ function viewFolder($dirPath) {
 		}
 		$htmlView .="
 			<tr>
-				<td>".$mainName."</td>
-				<td>".$typ."".$extension."</td>
-				<td>".$size."</td>
+				<td width='60%'>".$mainName."</td>
+				<td width='20%'>".$typ."".$extension."</td>
+				<td width='20%'>".$size."</td>
 			</tr>";
 		
 	}

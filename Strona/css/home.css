@@ -72,6 +72,14 @@ span
 	letter-spacing: 1px;
 	font-weight: bold;
 }
+table
+{
+    table-layout: fixed;
+}
+td
+{
+    word-wrap:break-word;
+}
 tbody, thead
 {
 	color:#004D40;
@@ -112,6 +120,7 @@ tbody, thead
 {
 	background-color:#80CBC4;
 	color:#004D40;
+	max-height:500px;
 	min-height:500px;
 	padding:20px;
 	margin-top:2px;

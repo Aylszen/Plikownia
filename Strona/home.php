@@ -78,13 +78,13 @@ if(!isset($_SESSION['startDirection']))
 						// Print all tree view menus 
 						echo createTreeView(0, $menus);
 						?></div>
-					<div class="folderView col-md-8 rounded">
+					<div class="folderView col-md-8 rounded table-responsive">
 						<table class="table table-hover">
 						<thead>
 						  <tr>
-							<th>Nazwa Pliku</th>
-							<th>Typ Pliku</th>
-							<th>Wielkosc Pliku</th>
+							<th width="60%">Nazwa Pliku</th>
+							<th width="20%">Typ Pliku</th>
+							<th width="20%">Wielkosc Pliku</th>
 						  </tr>
 						</thead>
 						<tbody id="table_content">
