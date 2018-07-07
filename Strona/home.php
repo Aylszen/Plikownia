@@ -30,7 +30,7 @@ if(!isset($_SESSION['startDirection']))
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script>
 			 function pagination(){
-					var req_num_row=4;
+					var req_num_row=6;
 					var $tr=jQuery('tbody tr');
 					var total_num_row=$tr.length;
 					var num_pages=0;
@@ -129,9 +129,9 @@ if(!isset($_SESSION['startDirection']))
 						<table id="tableView" class="table table-hover">
 						<thead>
 						  <tr>
-							<th width="60%">Nazwa Pliku</th>
-							<th width="20%">Typ Pliku</th>
-							<th width="20%">Wielkosc Pliku</th>
+							<th width="60%" onclick="sortTable(0)">Nazwa Pliku</th>
+							<th width="20%" onclick="sortTable(1)">Typ Pliku</th>
+							<th width="20%" onclick="sortTable(2)">Wielkosc Pliku</th>
 						  </tr>
 						</thead>
 						<tbody id="table_content">
@@ -183,6 +183,62 @@ if(!isset($_SESSION['startDirection']))
 				
 			}
 		</script>
+		<script>
+			function sortTable(n) {
+			  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+			  table = document.getElementById("tableView");
+			  switching = true;
+			  //Set the sorting direction to ascending:
+			  dir = "asc"; 
+			  /*Make a loop that will continue until
+			  no switching has been done:*/
+			  while (switching) {
+				//start by saying: no switching is done:
+				switching = false;
+				rows = table.getElementsByTagName("TR");
+				/*Loop through all table rows (except the
+				first, which contains table headers):*/
+				for (i = 1; i < (rows.length - 1); i++) {
+				  //start by saying there should be no switching:
+				  shouldSwitch = false;
+				  /*Get the two elements you want to compare,
+				  one from current row and one from the next:*/
+				  x = rows[i].getElementsByTagName("TD")[n];
+				  y = rows[i + 1].getElementsByTagName("TD")[n];
+				  /*check if the two rows should switch place,
+				  based on the direction, asc or desc:*/
+				  if (dir == "asc") {
+					if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+					  //if so, mark as a switch and break the loop:
+					  shouldSwitch= true;
+					  break;
+					}
+				  } else if (dir == "desc") {
+					if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+					  //if so, mark as a switch and break the loop:
+					  shouldSwitch = true;
+					  break;
+					}
+				  }
+				}
+				if (shouldSwitch) {
+				  /*If a switch has been marked, make the switch
+				  and mark that a switch has been done:*/
+				  rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+				  switching = true;
+				  //Each time a switch is done, increase this count by 1:
+				  switchcount ++;      
+				} else {
+				  /*If no switching has been done AND the direction is "asc",
+				  set the direction to "desc" and run the while loop again.*/
+				  if (switchcount == 0 && dir == "asc") {
+					dir = "desc";
+					switching = true;
+				  }
+				}
+			  }
+			}
+</script>
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
